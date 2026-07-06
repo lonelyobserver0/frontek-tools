@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3540"/>
+      <stop offset="1" stop-color="#0f1a1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="none" stroke="#2A9D8F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" transform="translate(150 250)">
+    <path d="M60 0 L0 60 L60 120"/>
+    <path d="M180 0 L240 60 L180 120"/>
+  </g>
+  <path d="M470 250 L410 400" stroke="#E76F51" stroke-width="14" stroke-linecap="round"/>
+  <text x="520" y="300" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="72" font-weight="800" fill="#e8efee">FRONTEK <tspan fill="#E76F51">TOOLS</tspan></text>
+  <text x="522" y="360" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="34" fill="#9db0b6">Fast, private developer utilities — 100% in your browser</text>
+</svg>

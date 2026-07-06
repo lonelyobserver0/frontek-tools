@@ -1,0 +1,275 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontek Tools — free developer utilities</title>
+<meta name="description" content="Fast, private developer tools that run entirely in your browser: JSON formatter, Base64, JWT decoder, URL encode, UUID, hash, timestamp and more. No tracking, nothing leaves your device.">
+<meta name="theme-color" content="#264653">
+
+<meta property="og:title" content="Frontek Tools — free developer utilities">
+<meta property="og:description" content="JSON formatter, Base64, JWT decoder, URL encode, UUID, hash, timestamp and more. 100% client-side, private, no tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.frontek.dev/">
+<meta property="og:image" content="https://tools.frontek.dev/assets/og-image.svg">
+
+<link rel="canonical" href="https://tools.frontek.dev/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css?v=dev">
+
+<a class="skip" href="#hub" data-i18n="skip_to_tools">Skip to tools</a>
+
+<header class="top">
+  <a class="brand" href="#/" aria-label="Frontek Tools">FRONTEK <span>TOOLS</span></a>
+  <div class="top__spacer"></div>
+  <button class="iconbtn" id="btnSettings" type="button" data-i18n-title="settings" data-i18n-aria="settings" title="Settings" aria-label="Settings">⚙</button>
+</header>
+
+<main class="wrap">
+
+  <!-- HUB: elenco strumenti (statico = indicizzabile) -------------------- -->
+  <section class="hub" id="hub">
+    <div class="hub__intro">
+      <h1 class="hub__title" data-i18n="hub_title">Developer tools that stay in your browser</h1>
+      <p class="hub__sub" data-i18n="hub_sub">Fast, private utilities. Nothing is uploaded — everything runs client-side.</p>
+      <div class="hub__search">
+        <input id="filter" type="search" data-i18n-ph="filter_ph" data-i18n-aria="filter_ph"
+               placeholder="Filter tools…" aria-label="Filter tools" autocapitalize="off" spellcheck="false">
+      </div>
+      <div class="hub__actions">
+        <button class="btn btn--light" id="btnCustomize" type="button" data-i18n="customize">Reorder tools</button>
+        <button class="btn btn--ghost" id="btnResetOrder" type="button" hidden data-i18n="reset_order">Reset order</button>
+      </div>
+    </div>
+
+    <div class="tools" id="toolsGrid">
+      <a class="tcard" href="#/json" data-id="json" data-tags="json format validate minify beautify pretty">
+        <span class="tcard__ic">{ }</span>
+        <span class="tcard__name">JSON Formatter</span>
+        <span class="tcard__desc">Format, minify and validate JSON.</span>
+      </a>
+      <a class="tcard" href="#/base64" data-id="base64" data-tags="base64 encode decode text binary">
+        <span class="tcard__ic">64</span>
+        <span class="tcard__name">Base64 Encode / Decode</span>
+        <span class="tcard__desc">Text ↔ Base64, standard or URL-safe.</span>
+      </a>
+      <a class="tcard" href="#/jwt" data-id="jwt" data-tags="jwt token decode json web token auth">
+        <span class="tcard__ic">JWT</span>
+        <span class="tcard__name">JWT Decoder</span>
+        <span class="tcard__desc">Inspect header, payload and expiry.</span>
+      </a>
+      <a class="tcard" href="#/url" data-id="url" data-tags="url encode decode percent uri query">
+        <span class="tcard__ic">%</span>
+        <span class="tcard__name">URL Encode / Decode</span>
+        <span class="tcard__desc">Percent-encode or decode URLs.</span>
+      </a>
+      <a class="tcard" href="#/uuid" data-id="uuid" data-tags="uuid guid generate v4 random id">
+        <span class="tcard__ic">ID</span>
+        <span class="tcard__name">UUID Generator</span>
+        <span class="tcard__desc">Generate random UUID v4 identifiers.</span>
+      </a>
+      <a class="tcard" href="#/hash" data-id="hash" data-tags="hash sha sha256 sha1 sha512 digest checksum">
+        <span class="tcard__ic">#</span>
+        <span class="tcard__name">Hash Generator</span>
+        <span class="tcard__desc">SHA-1 / 256 / 384 / 512 of any text.</span>
+      </a>
+      <a class="tcard" href="#/epoch" data-id="epoch" data-tags="epoch unix timestamp date time convert">
+        <span class="tcard__ic">⏱</span>
+        <span class="tcard__name">Timestamp Converter</span>
+        <span class="tcard__desc">Unix epoch ↔ human date, any zone.</span>
+      </a>
+      <a class="tcard" href="#/text" data-id="text" data-tags="text case count words characters slug uppercase lowercase">
+        <span class="tcard__ic">Aa</span>
+        <span class="tcard__name">Text & Case Tools</span>
+        <span class="tcard__desc">Count, transform case, slugify text.</span>
+      </a>
+      <a class="tcard" href="#/color" data-id="color" data-tags="color colour hex rgb hsl convert picker">
+        <span class="tcard__ic">◧</span>
+        <span class="tcard__name">Color Converter</span>
+        <span class="tcard__desc">HEX ↔ RGB ↔ HSL with preview.</span>
+      </a>
+      <a class="tcard" href="#/regex" data-id="regex" data-tags="regex regexp regular expression test match pattern">
+        <span class="tcard__ic">.*</span>
+        <span class="tcard__name">Regex Tester</span>
+        <span class="tcard__desc">Test patterns, see matches and groups.</span>
+      </a>
+      <a class="tcard" href="#/rxbuild" data-id="rxbuild" data-tags="regex builder write build pattern generator cheatsheet email url ipv4">
+        <span class="tcard__ic">\d+</span>
+        <span class="tcard__name">Regex Builder</span>
+        <span class="tcard__desc">Build regex from blocks &amp; ready patterns.</span>
+      </a>
+      <a class="tcard" href="#/cron" data-id="cron" data-tags="cron crontab schedule explain next runs">
+        <span class="tcard__ic">⏲</span>
+        <span class="tcard__name">Cron Explainer</span>
+        <span class="tcard__desc">Read a cron line and its next runs.</span>
+      </a>
+      <a class="tcard" href="#/diff" data-id="diff" data-tags="diff compare text difference lines merge">
+        <span class="tcard__ic">±</span>
+        <span class="tcard__name">Text Diff</span>
+        <span class="tcard__desc">Line-by-line diff of two texts.</span>
+      </a>
+      <a class="tcard" href="#/html" data-id="html" data-tags="html entity entities encode decode escape special characters">
+        <span class="tcard__ic">&lt;/&gt;</span>
+        <span class="tcard__name">HTML Entities</span>
+        <span class="tcard__desc">Encode or decode HTML entities.</span>
+      </a>
+      <a class="tcard" href="#/lorem" data-id="lorem" data-tags="lorem ipsum placeholder text generator dummy">
+        <span class="tcard__ic">¶</span>
+        <span class="tcard__name">Lorem Ipsum</span>
+        <span class="tcard__desc">Generate placeholder text.</span>
+      </a>
+      <a class="tcard" href="#/numbase" data-id="numbase" data-tags="number base binary octal decimal hexadecimal convert radix">
+        <span class="tcard__ic">0b</span>
+        <span class="tcard__name">Number Base Converter</span>
+        <span class="tcard__desc">Bin / Oct / Dec / Hex, big numbers.</span>
+      </a>
+      <a class="tcard" href="#/password" data-id="password" data-tags="password generator random secure strong passphrase">
+        <span class="tcard__ic">🔑</span>
+        <span class="tcard__name">Password Generator</span>
+        <span class="tcard__desc">Strong random passwords, crypto-grade.</span>
+      </a>
+      <a class="tcard" href="#/markdown" data-id="markdown" data-tags="markdown preview md html render">
+        <span class="tcard__ic">M↓</span>
+        <span class="tcard__name">Markdown Preview</span>
+        <span class="tcard__desc">Render Markdown to HTML live.</span>
+      </a>
+      <a class="tcard" href="#/chmod" data-id="chmod" data-tags="chmod permissions unix octal calculator rwx file mode">
+        <span class="tcard__ic">755</span>
+        <span class="tcard__name">Chmod Calculator</span>
+        <span class="tcard__desc">Unix permissions ↔ octal & symbolic.</span>
+      </a>
+      <a class="tcard" href="#/query" data-id="query" data-tags="query string url params json parse build querystring">
+        <span class="tcard__ic">?=</span>
+        <span class="tcard__name">Query String ↔ JSON</span>
+        <span class="tcard__desc">Parse or build URL query strings.</span>
+      </a>
+      <a class="tcard" href="#/csv" data-id="csv" data-tags="csv json convert table spreadsheet parse">
+        <span class="tcard__ic">,</span>
+        <span class="tcard__name">CSV ↔ JSON</span>
+        <span class="tcard__desc">Convert between CSV and JSON.</span>
+      </a>
+      <a class="tcard" href="#/case" data-id="case" data-tags="case camel snake kebab pascal constant convert naming">
+        <span class="tcard__ic">aA</span>
+        <span class="tcard__name">Case Converter</span>
+        <span class="tcard__desc">camelCase, snake_case, kebab-case…</span>
+      </a>
+      <a class="tcard" href="#/contrast" data-id="contrast" data-tags="color contrast wcag accessibility ratio a11y aa aaa">
+        <span class="tcard__ic">◐</span>
+        <span class="tcard__name">Contrast Checker</span>
+        <span class="tcard__desc">WCAG contrast ratio &amp; AA/AAA.</span>
+      </a>
+      <a class="tcard" href="#/lines" data-id="lines" data-tags="lines sort dedupe unique reverse shuffle text list">
+        <span class="tcard__ic">≡</span>
+        <span class="tcard__name">Line Tools</span>
+        <span class="tcard__desc">Sort, dedupe, reverse, shuffle lines.</span>
+      </a>
+      <a class="tcard" href="#/urlparse" data-id="urlparse" data-tags="url parse components query params host path analyze">
+        <span class="tcard__ic">🔗</span>
+        <span class="tcard__name">URL Parser</span>
+        <span class="tcard__desc">Break a URL into its components.</span>
+      </a>
+      <a class="tcard" href="#/unicode" data-id="unicode" data-tags="unicode inspector code point utf-8 character hex entity">
+        <span class="tcard__ic">U+</span>
+        <span class="tcard__name">Unicode Inspector</span>
+        <span class="tcard__desc">Code points, UTF-8 bytes, entities.</span>
+      </a>
+      <a class="tcard" href="#/jsonts" data-id="jsonts" data-tags="json typescript interface types generate schema">
+        <span class="tcard__ic">TS</span>
+        <span class="tcard__name">JSON → TypeScript</span>
+        <span class="tcard__desc">Infer TypeScript interfaces from JSON.</span>
+      </a>
+      <a class="tcard" href="#/strescape" data-id="strescape" data-tags="string escape unescape json javascript quotes backslash">
+        <span class="tcard__ic">\n</span>
+        <span class="tcard__name">String Escape</span>
+        <span class="tcard__desc">Escape / unescape JS &amp; JSON strings.</span>
+      </a>
+      <a class="tcard" href="#/roman" data-id="roman" data-tags="roman numerals number convert latin">
+        <span class="tcard__ic">Ⅳ</span>
+        <span class="tcard__name">Roman Numerals</span>
+        <span class="tcard__desc">Integer ↔ Roman numeral.</span>
+      </a>
+      <a class="tcard" href="#/binary" data-id="binary" data-tags="binary text ascii utf-8 convert bits">
+        <span class="tcard__ic">01</span>
+        <span class="tcard__name">Text ↔ Binary</span>
+        <span class="tcard__desc">Text to 8-bit binary and back.</span>
+      </a>
+      <a class="tcard" href="#/img2b64" data-id="img2b64" data-tags="image base64 data uri encode png jpg convert">
+        <span class="tcard__ic">🖼</span>
+        <span class="tcard__name">Image → Base64</span>
+        <span class="tcard__desc">Image to Base64 data URI, local.</span>
+      </a>
+      <a class="tcard" href="#/curl" data-id="curl" data-tags="curl fetch convert http request javascript api">
+        <span class="tcard__ic">⤓</span>
+        <span class="tcard__name">cURL → fetch</span>
+        <span class="tcard__desc">Turn a curl command into fetch().</span>
+      </a>
+      <a class="tcard" href="#/jsonpath" data-id="jsonpath" data-tags="json path query jsonpath extract filter">
+        <span class="tcard__ic">$.</span>
+        <span class="tcard__name">JSON Path Query</span>
+        <span class="tcard__desc">Extract values from JSON by path.</span>
+      </a>
+      <a class="tcard" href="#/qr" data-id="qr" data-tags="qr code generator url wifi vcard png svg barcode scan">
+        <span class="tcard__ic">▚</span>
+        <span class="tcard__name">QR Code Generator</span>
+        <span class="tcard__desc">Text or URL to a QR code — PNG or SVG.</span>
+      </a>
+    </div>
+
+    <p class="hub__empty" id="hubEmpty" hidden data-i18n="no_tools">No tools match your filter.</p>
+  </section>
+
+  <!-- PANNELLO STRUMENTO (riempito da JS) ------------------------------- -->
+  <section class="panel" id="toolPanel" hidden></section>
+
+  <!-- SPONSOR SLOT (first-party, non invasivo) -------------------------- -->
+  <aside class="sponsor" id="sponsor" hidden>
+    <span class="sponsor__tag" data-i18n="sponsor">Sponsor</span>
+    <a class="sponsor__body" id="sponsorLink" href="#" target="_blank" rel="noopener sponsored">
+      <span class="sponsor__text" id="sponsorText"></span>
+    </a>
+    <button class="sponsor__close" id="sponsorClose" type="button" title="×" aria-label="×">×</button>
+  </aside>
+
+</main>
+
+<footer class="foot">
+  <span>Frontek Tools</span>
+  <span class="foot__dot">·</span>
+  <span data-i18n="footer_privacy">No tracking · everything runs in your browser</span>
+  <span class="foot__dot">·</span>
+  <a href="https://frontek.dev/" target="_blank" rel="noopener">frontek.dev</a>
+</footer>
+
+<!-- MODALE IMPOSTAZIONI ---------------------------------------------- -->
+<div class="modal" id="settingsModal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+    <div class="modal__head">
+      <h2 id="setTitle" data-i18n="settings">Settings</h2>
+      <button class="iconbtn" data-close type="button" aria-label="×">×</button>
+    </div>
+    <div class="modal__body">
+      <div class="field">
+        <label class="field__label" for="langSelect" data-i18n="language">Language</label>
+        <select class="field__select" id="langSelect">
+          <option value="auto" data-i18n="lang_auto">Automatic (browser)</option>
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+          <option value="ru">Русский</option>
+          <option value="pl">Polski</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="themeSelect" data-i18n="theme">Theme</label>
+        <select class="field__select" id="themeSelect">
+          <option value="auto" data-i18n="theme_auto">Automatic (system)</option>
+          <option value="light" data-i18n="theme_light">Light</option>
+          <option value="dark" data-i18n="theme_dark">Dark</option>
+        </select>
+      </div>
+      <p class="field__hint" data-i18n="settings_privacy">All tools run locally in your browser. No input is ever sent to a server.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js?v=dev"></script>

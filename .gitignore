@@ -1,0 +1,20 @@
+# Dependencies (none needed — static vanilla site)
+node_modules/
+
+# Scratch / temporary
+scratchpad/
+*.log
+*.tmp
+*.bak
+*~
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local env / secrets
+.env
+.env.*
