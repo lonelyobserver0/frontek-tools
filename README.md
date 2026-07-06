@@ -1,10 +1,10 @@
 # Frontek Tools — `tools.frontek.dev`
 
-Hub di micro-tool per sviluppatori, **100% client-side**: nessun input lascia il
-browser, nessun backend, nessuna dipendenza, nessun build step. Stesso stack
-statico di `start.frontek.dev` / `feeds.frontek.dev`.
+A hub of developer micro-tools, **100% client-side**: no input ever leaves the
+browser, no backend, no dependencies, no build step. Same static stack as
+`start.frontek.dev` / `feeds.frontek.dev`.
 
-## Strumenti inclusi (34)
+## Included tools (34)
 JSON formatter · Base64 · JWT decoder · URL encode/decode · UUID v4 ·
 Hash (SHA-1/256/384/512) · Timestamp/epoch · Text & case · Color converter ·
 Regex tester · Regex builder · Cron explainer · Text diff · HTML entities ·
@@ -15,36 +15,36 @@ JSON → TypeScript · String escape/unescape · Roman numerals · Text ↔ bina
 Image → Base64 · cURL → fetch · JSON path query · QR code generator.
 
 ### QR code generator
-Encoder QR completo scritto da zero (byte mode UTF-8, ECC L/M/Q/H, versioni
-1–40, Reed-Solomon, selezione maschera per penalità), **100% client-side** —
-niente librerie, niente rete. Output PNG (canvas) o SVG vettoriale. Ogni codice
-generato è stato verificato decodificandolo con `zxing-cpp` (186/186 casi,
-versioni 1–40) e con OpenCV.
+A full QR encoder written from scratch (UTF-8 byte mode, ECC L/M/Q/H, versions
+1–40, Reed-Solomon, penalty-based mask selection), **100% client-side** — no
+libraries, no network. Outputs PNG (canvas) or vector SVG. Every generated code
+was verified by decoding it with `zxing-cpp` (186/186 cases, versions 1–40) and
+with OpenCV.
 
-## Riordino strumenti
-L'utente può riordinare le card e mettere per primi i tool preferiti: **Riordina
-strumenti** attiva la modalità edit (frecce su/giù/in cima per card), l'ordine è
-salvato in `localStorage` (`tools.order`), **Ripristina ordine** torna al default.
+## Reordering tools
+Users can reorder the cards and pin their favorite tools first: **Reorder tools**
+enables edit mode (up/down/move-to-top arrows per card), the order is saved to
+`localStorage` (`tools.order`), and **Reset order** restores the default.
 
-## Architettura
-- `index.html` — hub statico (le card sono nel markup ⇒ indicizzabili) + modale impostazioni.
-- `js/main.js` — registry `TOOLS`, router a hash (`#/json`, `#/base64`, …), filtro,
-  tema chiaro/scuro, i18n della shell (en/it, le altre lingue ricadono su en),
-  slot sponsor first-party (`SPONSOR = null` finché non valorizzato).
-- `css/style.css` — palette brand frontek, tema, componenti.
+## Architecture
+- `index.html` — static hub (cards live in the markup ⇒ crawlable) + settings modal.
+- `js/main.js` — `TOOLS` registry, hash router (`#/json`, `#/base64`, …), filter,
+  light/dark theme, shell i18n (en/it, other languages fall back to en),
+  first-party sponsor slot (`SPONSOR = null` until populated).
+- `css/style.css` — Frontek brand palette, theme, components.
 
-Aggiungere uno strumento = aggiungere una voce a `TOOLS` in `main.js` **e** una
-`.tcard` in `index.html` (stesso `data-id`).
+Adding a tool = adding an entry to `TOOLS` in `main.js` **and** a `.tcard` in
+`index.html` (same `data-id`).
 
 ## Deploy
 ```
 sudo bash ~/deploy_tools.sh
 ```
-Crea/aggiorna il vhost nginx `tools.frontek.dev`, cache-busting su CSS/JS,
-TLS via certbot (serve il record DNS A → 217.154.149.234). Nessun proxy: il
-sito non fa richieste di rete.
+Creates/updates the `tools.frontek.dev` nginx vhost, cache-busting on CSS/JS,
+TLS via certbot (requires the DNS A record → 217.154.149.234). No proxy: the
+site makes no network requests.
 
-## SEO — prossimo passo
-Per massimizzare la long-tail, si possono generare pagine statiche per singolo
-tool (`/json/`, `/base64/`, …) con contenuto indicizzabile dedicato, riusando lo
-stesso `main.js`. L'hub attuale è già crawlabile.
+## SEO — next step
+To maximize the long tail, per-tool static pages (`/json/`, `/base64/`, …) can be
+generated with dedicated indexable content, reusing the same `main.js`. The
+current hub is already crawlable.
